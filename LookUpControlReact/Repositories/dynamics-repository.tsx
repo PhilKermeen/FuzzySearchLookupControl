@@ -47,6 +47,10 @@ export class DynamicsRepository {
             console.log(response);
             return response;
         } catch (error) {
+            let message;
+            if (error instanceof Error) message = error.message;
+            else message = String(error);
+            alert(message);
             console.error(error);
         }
     }
