@@ -66,8 +66,6 @@ export class DynamicsRepository {
                     if (this.status === 200 || this.status === 204) {
                         const result = JSON.parse(this.response);
                         console.log(result);
-                        //JSON.parse(result.response).Value[0].Text;
-                        //JSON.parse(result.response).Value[0].Document['@search.objectid']
                         resolve(JSON.parse(result.response).Value);
 
                     } else {
@@ -77,7 +75,6 @@ export class DynamicsRepository {
                 }
             };
         
-            //req.send(JSON.stringify({ "fuzzy": true, "entities": "[{'name':'new_supplier'}]",  "search": "test" }));
             req.send(JSON.stringify({ "fuzzy": true, "entities": "[{'name': '" + entityName + "'}]",  "search": searchTerm }));
         });
     }
